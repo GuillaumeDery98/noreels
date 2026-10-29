@@ -4,4 +4,25 @@
     <string name="service_summary">Quitte automatiquement les Reels, Shorts, Spotlight et TikTok.</string>
     <string name="service_description">NoReels lit l\'écran des applications sociales (Instagram, YouTube, Facebook, Snapchat, TikTok et Chrome) uniquement pour reconnaître les écrans de vidéos courtes, puis revient en arrière. L\'application n\'a pas accès à Internet : rien ne quitte ton téléphone, et elle n\'interagit jamais avec tes comptes.</string>
     <string name="blocked_toast">Bloqué par NoReels</string>
+    <string name="service_on_title">Protection active</string>
+    <string name="service_on_body">Les Reels, Shorts, Spotlight et TikTok sont quittés automatiquement dans les applications officielles.</string>
+    <string name="service_off_title">Protection désactivée</string>
+    <string name="service_off_body">Active le service d\'accessibilité « NoReels » pour bloquer les vidéos courtes. Il ne lit que l\'écran des applications sociales et n\'a pas accès à Internet.</string>
+    <string name="service_enable_button">Activer dans les réglages</string>
+    <string name="today_title">Aujourd\'hui</string>
+    <plurals name="blocks_today">
+        <item quantity="one">%d blocage</item>
+        <item quantity="many">%d blocages</item>
+        <item quantity="other">%d blocages</item>
+    </plurals>
+    <plurals name="blocks_short">
+        <item quantity="one">%d bloqué</item>
+        <item quantity="many">%d bloqués</item>
+        <item quantity="other">%d bloqués</item>
+    </plurals>
+    <string name="usage_missing_body">Autorise l\'accès aux statistiques d\'utilisation pour voir le temps passé sur chaque application.</string>
+    <string name="usage_grant_button">Autoriser l\'accès</string>
+    <string name="not_installed">non installée</string>
+    <string name="duration_minutes">%d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$02d</string>
 </resources>
