@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NoReels</string>
+    <string name="service_label">NoReels – blocage des Reels</string>
+    <string name="service_summary">Quitte automatiquement les Reels, Shorts, Spotlight et TikTok.</string>
+    <string name="service_description">NoReels lit l\'écran des applications sociales (Instagram, YouTube, Facebook, Snapchat, TikTok et Chrome) uniquement pour reconnaître les écrans de vidéos courtes, puis revient en arrière. L\'application n\'a pas accès à Internet : rien ne quitte ton téléphone, et elle n\'interagit jamais avec tes comptes.</string>
+    <string name="blocked_toast">Bloqué par NoReels</string>
 </resources>
