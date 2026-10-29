@@ -2,6 +2,8 @@ package app.noreels.service
 
 import android.accessibilityservice.AccessibilityService
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.os.SystemClock
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
@@ -32,7 +34,10 @@ class ReelsBlockerService : AccessibilityService() {
     private val decider by lazy {
         BlockDecider(container.rules.debounceMs, container.rules.escalationWindowMs) { SystemClock.uptimeMillis() }
     }
-    private val lastEvaluation = mutableMapOf<String, Long>()
+    private val throttle by lazy {
+        EvaluationThrottle(container.rules.contentEvaluationIntervalMs) { SystemClock.uptimeMillis() }
+    }
+    private val handler = Handler(Looper.getMainLooper())
 
     @Volatile
     private var disabledSurfaces: Set<String> = emptySet()
@@ -45,8 +50,19 @@ class ReelsBlockerService : AccessibilityService() {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         val eventPackage = event.packageName?.toString() ?: return
-        if (eventPackage == packageName || !shouldEvaluate(event, eventPackage)) return
+        if (eventPackage == packageName) return
+        val windowChanged = event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
+        when (val decision = throttle.onEvent(eventPackage, windowChanged)) {
+            ThrottleDecision.Now -> evaluate(eventPackage)
+            is ThrottleDecision.Later -> handler.postDelayed({
+                throttle.onDeferredRun(eventPackage)
+                evaluate(eventPackage)
+            }, decision.delayMs)
+            ThrottleDecision.Skip -> Unit
+        }
+    }
 
+    private fun evaluate(eventPackage: String) {
         val detection = try {
             val root = rootInActiveWindow
             val foregroundPackage = root?.packageName?.toString() ?: eventPackage
@@ -69,17 +85,9 @@ class ReelsBlockerService : AccessibilityService() {
     override fun onInterrupt() = Unit
 
     override fun onDestroy() {
+        handler.removeCallbacksAndMessages(null)
         scope.cancel()
         super.onDestroy()
-    }
-
-    private fun shouldEvaluate(event: AccessibilityEvent, eventPackage: String): Boolean {
-        if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return true
-        val now = SystemClock.uptimeMillis()
-        val last = lastEvaluation[eventPackage]
-        if (last != null && now - last < container.rules.contentEvaluationIntervalMs) return false
-        lastEvaluation[eventPackage] = now
-        return true
     }
 
     private fun perform(detection: Detection, action: BlockAction) {
