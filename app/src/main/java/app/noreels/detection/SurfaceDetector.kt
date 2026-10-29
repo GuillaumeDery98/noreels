@@ -41,9 +41,21 @@ class SurfaceDetector(rules: BlockingRules) {
         surfaces.firstOrNull { it.type == SurfaceType.WHOLE_APP }?.let { return it.toDetection(BlockAction.HOME) }
         val nodeSurfaces = surfaces.filter { it.type == SurfaceType.NODES }
         if (root == null || nodeSurfaces.isEmpty()) return null
+
+        // Id matchers use one lookup each; only matchers without an id need a walk of the tree.
+        nodeSurfaces.firstOrNull { surface ->
+            surface.matchers.any { matcher ->
+                matcher.viewId != null && root.findByViewId(matcher.viewId).any { matcher.matches(it, screen) }
+            }
+        }?.let { return it.toDetection(BlockAction.BACK) }
+
+        val walkSurfaces = nodeSurfaces.filter { surface -> surface.matchers.any { it.viewId == null } }
+        if (walkSurfaces.isEmpty()) return null
         var found: CompiledSurface? = null
         traverse(root) { node ->
-            found = nodeSurfaces.firstOrNull { surface -> surface.matchers.any { it.matches(node, screen) } }
+            found = walkSurfaces.firstOrNull { surface ->
+                surface.matchers.any { it.viewId == null && it.matches(node, screen) }
+            }
             found != null
         }
         return found?.toDetection(BlockAction.BACK)
@@ -51,13 +63,13 @@ class SurfaceDetector(rules: BlockingRules) {
 
     private fun detectInBrowser(surfaces: List<CompiledSurface>, urlBarIds: Set<String>, root: ScreenNode?): Detection? {
         if (root == null || surfaces.isEmpty()) return null
-        var url: String? = null
-        traverse(root) { node ->
-            if (node.isVisibleToUser && node.viewId in urlBarIds) url = node.text?.toString()?.lowercase()
-            url != null
-        }
-        val current = url ?: return null
-        return surfaces.firstOrNull { surface -> surface.urlPatterns.any { current.contains(it) } }
+        // A focused bar shows what the user is typing, not the page that is open.
+        val url = urlBarIds.asSequence()
+            .flatMap { root.findByViewId(it) }
+            .firstOrNull { it.isVisibleToUser && !it.isFocused && !it.text.isNullOrBlank() }
+            ?.text?.let { WebAddress.parse(it.toString()) }
+            ?: return null
+        return surfaces.firstOrNull { surface -> surface.urlPatterns.any { url.matches(it) } }
             ?.toDetection(BlockAction.BACK)
     }
 
@@ -84,7 +96,28 @@ class SurfaceDetector(rules: BlockingRules) {
         fun toDetection(action: BlockAction) = Detection(platformId, surfaceId, action)
     }
 
+    /** Host and path of an address bar text such as `https://m.youtube.com/shorts/x` or `youtube.com/shorts/x`. */
+    private class WebAddress(val host: String, val path: String) {
+
+        /** [pattern] is `host[/path]`; it matches the host or any of its subdomains, and a path prefix. */
+        fun matches(pattern: WebAddress): Boolean =
+            (host == pattern.host || host.endsWith(".${pattern.host}")) && path.startsWith(pattern.path)
+
+        fun matches(pattern: String): Boolean = matches(parse(pattern))
+
+        companion object {
+            private val scheme = Regex("^[a-z][a-z0-9+.-]*://")
+
+            fun parse(text: String): WebAddress {
+                val address = text.trim().lowercase().replace(scheme, "")
+                val hostEnd = address.indexOfFirst { it == '/' || it == '?' || it == '#' }.takeIf { it >= 0 } ?: address.length
+                return WebAddress(address.substring(0, hostEnd), address.substring(hostEnd))
+            }
+        }
+    }
+
     private class CompiledMatcher(private val matcher: NodeMatcher) {
+        val viewId: String? = matcher.viewId
         private val textRegex = matcher.textRegex?.let(::Regex)
         private val contentDescriptionRegex = matcher.contentDescriptionRegex?.let(::Regex)
 

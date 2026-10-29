@@ -13,6 +13,7 @@ class AccessibilityScreenNode(private val info: AccessibilityNodeInfo) : ScreenN
     override val contentDescription: CharSequence? get() = info.contentDescription
     override val isVisibleToUser: Boolean get() = info.isVisibleToUser
     override val isSelected: Boolean get() = info.isSelected
+    override val isFocused: Boolean get() = info.isFocused
 
     override val bounds: ScreenRect by lazy {
         val rect = Rect()
@@ -23,4 +24,7 @@ class AccessibilityScreenNode(private val info: AccessibilityNodeInfo) : ScreenN
     override val children: List<ScreenNode> by lazy {
         (0 until info.childCount).mapNotNull { index -> info.getChild(index)?.let(::AccessibilityScreenNode) }
     }
+
+    override fun findByViewId(viewId: String): List<ScreenNode> =
+        info.findAccessibilityNodeInfosByViewId(viewId).map(::AccessibilityScreenNode)
 }

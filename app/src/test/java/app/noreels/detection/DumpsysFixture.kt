@@ -50,6 +50,7 @@ object DumpsysFixture {
         override val text: CharSequence? = null
         override val contentDescription: CharSequence? = null
         override val isSelected: Boolean = false
+        override val isFocused: Boolean = false
         override val children: List<ScreenNode> get() = mutableChildren
     }
 }

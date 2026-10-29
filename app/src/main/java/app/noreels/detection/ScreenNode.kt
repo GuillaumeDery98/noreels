@@ -15,7 +15,23 @@ interface ScreenNode {
     val bounds: ScreenRect
     val isVisibleToUser: Boolean
     val isSelected: Boolean
+    val isFocused: Boolean
     val children: List<ScreenNode>
+
+    /**
+     * Nodes of this subtree with the given resource id. The default walks the tree; the
+     * accessibility adapter overrides it with a single lookup done inside the target app.
+     */
+    fun findByViewId(viewId: String): List<ScreenNode> {
+        val found = mutableListOf<ScreenNode>()
+        val queue = ArrayDeque<ScreenNode>().apply { add(this@ScreenNode) }
+        while (queue.isNotEmpty()) {
+            val node = queue.removeFirst()
+            if (node.viewId == viewId) found += node
+            queue.addAll(node.children)
+        }
+        return found
+    }
 }
 
 enum class BlockAction { BACK, HOME }
