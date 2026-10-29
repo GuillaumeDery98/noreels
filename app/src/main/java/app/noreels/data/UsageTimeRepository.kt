@@ -15,7 +15,7 @@ class UsageTimeRepository(
 
     fun hasAccess(): Boolean {
         val appOps = context.getSystemService(AppOpsManager::class.java)
-        val mode = appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), context.packageName)
+        val mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), context.packageName)
         return mode == AppOpsManager.MODE_ALLOWED
     }
 

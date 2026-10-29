@@ -2,6 +2,7 @@ package app.noreels.data
 
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
@@ -10,6 +11,7 @@ import org.junit.Test
 import org.junit.rules.TemporaryFolder
 import java.time.LocalDate
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class StatsRepositoryTest {
 
     @get:Rule val tmp = TemporaryFolder()
