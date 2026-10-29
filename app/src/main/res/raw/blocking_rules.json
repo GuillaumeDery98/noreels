@@ -1,0 +1,113 @@
+{
+  "debounceMs": 700,
+  "escalationWindowMs": 2500,
+  "contentEvaluationIntervalMs": 300,
+  "maxTraversedNodes": 3000,
+  "platforms": [
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "packages": ["com.instagram.android"],
+      "surfaces": [
+        {
+          "id": "reels",
+          "label": "Reels",
+          "type": "nodes",
+          "nodes": [
+            { "viewId": "com.instagram.android:id/clips_viewer_container", "minWidthRatio": 0.8, "minHeightRatio": 0.5 },
+            { "viewId": "com.instagram.android:id/clips_viewer_view_pager", "minWidthRatio": 0.8, "minHeightRatio": 0.5 },
+            { "viewId": "com.instagram.android:id/clips_viewer_video_layout", "minWidthRatio": 0.8, "minHeightRatio": 0.5 }
+          ]
+        },
+        {
+          "id": "reels_web",
+          "label": "Reels dans Chrome",
+          "type": "url",
+          "urlPatterns": ["instagram.com/reels", "instagram.com/reel/"]
+        }
+      ]
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "packages": ["com.google.android.youtube"],
+      "surfaces": [
+        {
+          "id": "shorts",
+          "label": "Shorts",
+          "type": "nodes",
+          "nodes": [
+            { "viewId": "com.google.android.youtube:id/shorts_player_container", "minWidthRatio": 0.8, "minHeightRatio": 0.5 },
+            { "viewId": "com.google.android.youtube:id/reel_player_page_container", "minWidthRatio": 0.8, "minHeightRatio": 0.5 }
+          ]
+        },
+        {
+          "id": "shorts_web",
+          "label": "Shorts dans Chrome",
+          "type": "url",
+          "urlPatterns": ["youtube.com/shorts"]
+        }
+      ]
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "packages": ["com.facebook.katana"],
+      "surfaces": [
+        {
+          "id": "reels",
+          "label": "Reels (expérimental)",
+          "type": "nodes",
+          "nodes": [
+            { "contentDescriptionRegex": "(?i)^reels?\\b", "selected": true }
+          ]
+        },
+        {
+          "id": "reels_web",
+          "label": "Reels dans Chrome",
+          "type": "url",
+          "urlPatterns": ["facebook.com/reel"]
+        }
+      ]
+    },
+    {
+      "id": "snapchat",
+      "label": "Snapchat",
+      "packages": ["com.snapchat.android"],
+      "surfaces": [
+        {
+          "id": "spotlight",
+          "label": "Spotlight",
+          "type": "nodes",
+          "nodes": [
+            { "viewId": "com.snapchat.android:id/spotlight_container", "minWidthRatio": 0.8, "minHeightRatio": 0.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "packages": ["com.zhiliaoapp.musically", "com.ss.android.ugc.trill"],
+      "surfaces": [
+        {
+          "id": "app",
+          "label": "Application entière",
+          "type": "wholeApp"
+        },
+        {
+          "id": "web",
+          "label": "TikTok dans Chrome",
+          "type": "url",
+          "urlPatterns": ["tiktok.com"]
+        }
+      ]
+    }
+  ],
+  "browsers": [
+    {
+      "packageName": "com.android.chrome",
+      "urlBarIds": ["com.android.chrome:id/url_bar"]
+    }
+  ]
+}
