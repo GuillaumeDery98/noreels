@@ -21,7 +21,7 @@
         },
         {
           "id": "reels_web",
-          "label": "Reels dans Chrome",
+          "label": "Reels dans le navigateur",
           "type": "url",
           "urlPatterns": ["instagram.com/reels", "instagram.com/reel/"]
         }
@@ -43,7 +43,7 @@
         },
         {
           "id": "shorts_web",
-          "label": "Shorts dans Chrome",
+          "label": "Shorts dans le navigateur",
           "type": "url",
           "urlPatterns": ["youtube.com/shorts"]
         }
@@ -64,7 +64,7 @@
         },
         {
           "id": "reels_web",
-          "label": "Reels dans Chrome",
+          "label": "Reels dans le navigateur",
           "type": "url",
           "urlPatterns": ["facebook.com/reel"]
         }
@@ -97,7 +97,7 @@
         },
         {
           "id": "web",
-          "label": "TikTok dans Chrome",
+          "label": "TikTok dans le navigateur",
           "type": "url",
           "urlPatterns": ["tiktok.com"]
         }
@@ -108,6 +108,10 @@
     {
       "packageName": "com.android.chrome",
       "urlBarIds": ["com.android.chrome:id/url_bar"]
+    },
+    {
+      "packageName": "com.brave.browser",
+      "urlBarIds": ["com.brave.browser:id/url_bar"]
     }
   ]
 }

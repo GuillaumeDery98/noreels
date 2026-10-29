@@ -19,6 +19,8 @@ class RulesParserTest {
             .inOrder()
         val chrome = rules.browsers.single { it.packageName == "com.android.chrome" }
         assertThat(chrome.urlBarIds).contains("com.android.chrome:id/url_bar")
+        val brave = rules.browsers.single { it.packageName == "com.brave.browser" }
+        assertThat(brave.urlBarIds).contains("com.brave.browser:id/url_bar")
         assertThat(rules.watchedPackages()).containsAtLeast(
             "com.instagram.android",
             "com.google.android.youtube",
@@ -27,6 +29,7 @@ class RulesParserTest {
             "com.zhiliaoapp.musically",
             "com.ss.android.ugc.trill",
             "com.android.chrome",
+            "com.brave.browser",
         )
     }
 

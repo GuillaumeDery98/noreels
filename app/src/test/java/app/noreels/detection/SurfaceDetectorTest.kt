@@ -94,6 +94,17 @@ class SurfaceDetectorTest {
     }
 
     @Test
+    fun braveShortsUrlDetected() {
+        val root = FakeNode(
+            children = listOf(FakeNode(viewId = BRAVE_URL_BAR, text = "youtube.com/shorts/abc", bounds = ScreenRect(150, 2200, 900, 2320)))
+        )
+
+        val detection = detector.detect(BRAVE, root, screen, allEnabled)
+
+        assertThat(detection).isEqualTo(Detection("youtube", "shorts_web", BlockAction.BACK))
+    }
+
+    @Test
     fun chromeRegularYoutubeUrlIgnored() {
         assertThat(detector.detect(CHROME, chromeWithUrl("youtube.com/watch?v=x"), screen, allEnabled)).isNull()
     }
@@ -182,6 +193,8 @@ class SurfaceDetectorTest {
         const val FACEBOOK = "com.facebook.katana"
         const val CHROME = "com.android.chrome"
         const val CHROME_URL_BAR = "com.android.chrome:id/url_bar"
+        const val BRAVE = "com.brave.browser"
+        const val BRAVE_URL_BAR = "com.brave.browser:id/url_bar"
         const val IG_CLIPS = "com.instagram.android:id/clips_viewer_container"
     }
 }

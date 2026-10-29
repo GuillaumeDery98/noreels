@@ -1,6 +1,6 @@
 # NoReels
 
-Application Android qui bloque les vidéos courtes **dans les applications officielles**, sans changer ta façon de les utiliser : Reels Instagram, Shorts YouTube, Reels Facebook, Spotlight Snapchat, TikTok, et leurs équivalents dans Chrome.
+Application Android qui bloque les vidéos courtes **dans les applications officielles**, sans changer ta façon de les utiliser : Reels Instagram, Shorts YouTube, Reels Facebook, Spotlight Snapchat, TikTok, et leurs équivalents dans Brave et Chrome.
 
 Principe : un service d'accessibilité reconnaît les écrans de vidéos courtes à partir des identifiants de vues, puis déclenche un « retour » global (ou « accueil » si le retour ne suffit pas). Il ne clique jamais dans les applications et n'agit jamais sur tes comptes. L'application n'a **pas** la permission Internet : rien ne quitte le téléphone.
 
@@ -50,8 +50,8 @@ Les tests automatisés valident la logique sur deux captures réelles d'Instagra
 | 6 | Facebook → onglet Reels | Retour | **Expérimental** (hypothèse sur la description d'accessibilité) |
 | 6b | Facebook → onglet « Reels » d'un profil | Risque de blocage (faux positif connu de la règle) : désactiver « Reels (expérimental) » si gênant | **Expérimental** |
 | 7 | Ouvrir TikTok | Retour à l'écran d'accueil du téléphone | Fiable (toute l'app) |
-| 8 | Chrome → `youtube.com/shorts/…` | Retour | À vérifier : Chrome peut n'afficher que le domaine |
-| 8b | Chrome → taper « tiktok.com » dans la barre, ou chercher « tiktok » sur Google | Aucun blocage pendant la saisie ni sur la page de résultats | Testé (JVM) |
+| 8 | Brave ou Chrome → `youtube.com/shorts/…` | Retour | Vérifié sur émulateur (Brave 1.98.62 et Chrome) : la barre d'adresse contient le chemin |
+| 8b | Brave ou Chrome → taper « tiktok.com » dans la barre, ou chercher « tiktok » | Aucun blocage pendant la saisie ni sur la page de résultats | Testé (JVM) |
 | 9 | Désactiver « Reels » d'Instagram dans NoReels, refaire 1 | Pas de blocage | Testé (JVM) |
 | 10 | Écran d'accueil NoReels | Compteur « Aujourd'hui » incrémenté | Testé (JVM) |
 
