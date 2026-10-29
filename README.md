@@ -47,7 +47,8 @@ Les tests automatisés valident la logique sur deux captures réelles d'Instagra
 | 3b | Instagram → stories, messages, profil | Aucun blocage | **À vérifier** (non capturés : zones sensibles aux faux positifs) |
 | 4 | YouTube (app) → onglet Shorts | Retour | Identifiants repris de SocialLite, à vérifier |
 | 5 | Snapchat → Spotlight | Retour | Identifiants repris de SocialLite, à vérifier |
-| 6 | Facebook → onglet Reels ; puis l'onglet « Reels » d'un profil | Retour sur l'onglet principal ; pas de blocage sur le profil | **Expérimental** (hypothèse sur la description d'accessibilité) |
+| 6 | Facebook → onglet Reels | Retour | **Expérimental** (hypothèse sur la description d'accessibilité) |
+| 6b | Facebook → onglet « Reels » d'un profil | Risque de blocage (faux positif connu de la règle) : désactiver « Reels (expérimental) » si gênant | **Expérimental** |
 | 7 | Ouvrir TikTok | Retour à l'écran d'accueil du téléphone | Fiable (toute l'app) |
 | 8 | Chrome → `youtube.com/shorts/…` | Retour | À vérifier : Chrome peut n'afficher que le domaine |
 | 8b | Chrome → taper « tiktok.com » dans la barre, ou chercher « tiktok » sur Google | Aucun blocage pendant la saisie ni sur la page de résultats | Testé (JVM) |
