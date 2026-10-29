@@ -37,18 +37,20 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 
 ## Test sur appareil (environ 5 minutes)
 
-Les tests automatisés valident la logique sur une capture réelle d'Instagram 453. Les comportements ci-dessous dépendent des versions installées et doivent être vérifiés sur le téléphone.
+Les tests automatisés valident la logique sur deux captures réelles d'Instagram 453 (fil d'accueil et onglet Reels). Les comportements ci-dessous dépendent des versions installées et doivent être vérifiés sur le téléphone.
 
 | # | Action | Résultat attendu | Fiabilité de la règle |
 |---|--------|------------------|-----------------------|
 | 1 | Instagram → onglet Reels | Retour immédiat + toast « Bloqué par NoReels » | Vérifiée sur capture réelle |
 | 2 | Instagram → toucher un Reel dans le fil | Retour au fil | Vérifiée sur capture réelle |
-| 3 | Instagram → fil, stories, messages, profil | Aucun blocage | Vérifiée sur capture réelle (accueil) |
+| 3 | Instagram → fil d'accueil | Aucun blocage | Vérifiée sur capture réelle |
+| 3b | Instagram → stories, messages, profil | Aucun blocage | **À vérifier** (non capturés : zones sensibles aux faux positifs) |
 | 4 | YouTube (app) → onglet Shorts | Retour | Identifiants repris de SocialLite, à vérifier |
 | 5 | Snapchat → Spotlight | Retour | Identifiants repris de SocialLite, à vérifier |
-| 6 | Facebook → onglet Reels | Retour | **Expérimental** (hypothèse sur la description d'accessibilité) |
+| 6 | Facebook → onglet Reels ; puis l'onglet « Reels » d'un profil | Retour sur l'onglet principal ; pas de blocage sur le profil | **Expérimental** (hypothèse sur la description d'accessibilité) |
 | 7 | Ouvrir TikTok | Retour à l'écran d'accueil du téléphone | Fiable (toute l'app) |
 | 8 | Chrome → `youtube.com/shorts/…` | Retour | À vérifier : Chrome peut n'afficher que le domaine |
+| 8b | Chrome → taper « tiktok.com » dans la barre, ou chercher « tiktok » sur Google | Aucun blocage pendant la saisie ni sur la page de résultats | Testé (JVM) |
 | 9 | Désactiver « Reels » d'Instagram dans NoReels, refaire 1 | Pas de blocage | Testé (JVM) |
 | 10 | Écran d'accueil NoReels | Compteur « Aujourd'hui » incrémenté | Testé (JVM) |
 
