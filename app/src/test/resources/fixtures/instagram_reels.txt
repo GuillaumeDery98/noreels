@@ -1,0 +1,267 @@
+      com.android.internal.policy.DecorView{c0fcb1f V.ED..... R....... 0,0-1080,2424 aid=1073741826}[InstagramMainActivity]
+        android.widget.LinearLayout{c426796 V.E...... ........ 0,0-1080,2424}
+          android.view.ViewStub{41b3181 G.E...... ......I. 0,0-0,0 #1020200 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{72736b1 V.E...... ........ 0,0-1080,2424}
+            androidx.appcompat.widget.FitWindowsLinearLayout{20db558 V.E...... ........ 0,0-1080,2424 #7f0b00d7 app:id/action_bar_root}
+              androidx.appcompat.widget.ViewStubCompat{36f9226 G.E...... ......I. 0,0-0,0 #7f0b011b app:id/action_mode_bar_stub}
+              androidx.appcompat.widget.ContentFrameLayout{deffa3b V.E...... ........ 0,0-1080,2424 #1020002 android:id/content}
+                com.instagram.common.ui.base.IgFrameLayout{57c88ca V.E...... ........ 0,0-1080,2424}
+                  com.instagram.ui.swipenavigation.container.SwipeNavigationContainer{e250c35 V.E...... ........ 0,0-1080,2424 #7f0b4044 app:id/swipe_navigation_container}
+                    com.instagram.common.ui.base.IgFrameLayout{b971e6c V.E...... ........ 0,0-1080,2424 #7f0b22ae app:id/layout_container_left}
+                    com.instagram.common.ui.base.IgFrameLayout{7d9ff17 V.E...... ........ 0,173-1080,2361 #7f0b06ac app:id/bottom_sheet_camera_container}
+                    com.instagram.common.ui.widget.touchinterceptorlayout.TouchInterceptorCoordinatorLayout{9b56722 V.E...... ........ 0,0-1080,2361 #7f0b22ac app:id/layout_container_center_right_coordinator_layout}
+                      androidx.constraintlayout.widget.ConstraintLayout{8320d6a V.E...... ........ 0,173-1080,2361 #7f0b22b1 app:id/layout_container_main_panel}
+                        android.view.ViewStub{46cfe67 G.E...... ......I. 0,0-0,0 #7f0b251e app:id/ls_vertical_nav_bar_stub}
+                        com.instagram.common.ui.base.IgFrameLayout{a478ced V.E...... ........ 0,0-1080,2188 #7f0b22b2 app:id/layout_container_main_wrapper}
+                          android.view.View{f0124ad V.ED..... ........ 0,1952-1080,2056 #7f0b0ba6 app:id/clips_expanded_touch_view}
+                          com.instagram.common.ui.base.IgFrameLayout{654cf04 V.E...... ........ 0,0-1080,2188 #7f0b22af app:id/layout_container_main}
+                          androidx.viewpager2.widget.ViewPager2{df575b3 V.E...... ........ 0,0-1080,2188 #7f0b4056 app:id/swipeable_tab_view_pager}
+                            X.00iS{79d0ae9 VFED..... ........ 0,0-1080,2188 #7f0b4055 app:id/swipeable_nav_view_pager_inner_recycler_view}
+                              android.widget.FrameLayout{6d1d770 V.E...... ........ 0,0-1080,2188 #39d}
+                                com.instagram.common.ui.base.IgFrameLayout{1978d62 V.E...... ........ 0,0-1080,2188 #7f0b22b5 app:id/layout_container_swipeable}
+                                  com.instagram.common.ui.base.IgFrameLayout{6ef4a16 V.E...... ........ 0,0-1080,2188 #7f0b36ba app:id/root_clips_layout}
+                                    com.instagram.common.ui.base.IgLinearLayout{fc81331 V.E...... ........ 0,0-1080,2188 #7f0b0bd0 app:id/clips_linear_layout_container}
+                                      com.instagram.ui.gesture.GestureManagerFrameLayout{76c64c6 VFE...... .F...... 0,0-1080,2030 #7f0b1b2f app:id/gesture_manager aid=1073741827}
+                                        android.view.ViewStub{2d3bfa2 G.E...... ......I. 0,0-0,0 #7f0b0c70 app:id/clips_top_of_feed_container}
+                                        android.view.ViewStub{1d82433 G.E...... ......I. 0,0-0,0 #7f0b0c57 app:id/clips_stories_tray_container_overlay}
+                                        com.instagram.common.ui.base.IgFrameLayout{685194c V.E...... ........ 0,0-1080,2030 #7f0b0c8c app:id/clips_viewer_container}
+                                          instagram.features.clips.viewer.ui.ClipsSwipeRefreshLayout{1d32aa1 V.ED..... ........ 0,0-1080,2030 #7f0b0c5a app:id/clips_swipe_refresh_container}
+                                            X.0AEK{b26adb8 G.ED..... ......ID 488,-105-592,0}
+                                            androidx.viewpager2.widget.ViewPager2{d1f657f V.E...... ........ 0,0-1080,2030 #7f0b0cae app:id/clips_viewer_view_pager}
+                                              X.00iS{f8be2f2 VFED..... ........ 0,0-1080,2030 #3a2}
+                                                com.instagram.ui.widget.roundedcornerlayout.RoundedCornerFrameLayout{df6c3d9 V.E...... ........ 0,0-1080,2030}
+                                                  com.facebook.litho.LithoView{f44fc4c V.ED..... ........ 0,0-1080,2030}<cls>X.05DO</cls>
+                                                    com.facebook.litho.ComponentHost{c9cbe4 VFED..... ........ 0,0-1080,2030 #7f0b0bd2 app:id/clips_media_component}
+                                                      com.facebook.litho.ComponentHost{98fdf02 V.ED..... ........ 0,0-1080,2030 #7f0b0c44 app:id/clips_single_media_component}
+                                                        com.facebook.litho.ComponentHost{5c0c013 V.ED..... ........ 0,0-1080,2030}
+                                                          X.0A5d{ea64c5a V.E...... ........ 0,0-1080,2030 #7f0b0cad app:id/clips_viewer_video_layout}
+                                                            com.instagram.ui.simplevideolayout.SimpleVideoLayout{ea0e94e V.E...... ........ 0,0-1080,2030 #7f0b0c7c app:id/clips_video_container}
+                                                              X.04r4{8e56dcb V.E...... ........ 0,0-1080,2030}
+                                                            com.instagram.common.ui.widget.imageview.IgImageView{f49c250 G.ED..... ......I. 0,0-1080,2030}
+                                                            com.instagram.common.ui.widget.imageview.IgImageView{68123f0 G.ED..... ......ID 0,0-0,0}
+                                                    com.facebook.litho.ComponentHost{fae1e8b V.ED..... ........ 0,0-1080,2030}
+                                                      com.facebook.litho.ComponentHost{4f38b68 V.ED..... ........ 0,1274-1080,2030 #7f0b0b51 app:id/clips_bottom_legibility_gradient_component}
+                                                        com.facebook.litho.ComponentHost{129f614 V.ED..... ........ 0,0-1080,756}
+                                                      com.facebook.litho.ComponentHost{f500ebd VFED..C.. ........ 0,0-1080,2030 #7f0b0c71 app:id/clips_touchable_background}
+                                                      com.facebook.litho.ComponentHost{cc20cb2 V.ED..... ........ 0,0-1080,2030 #7f0b0bc9 app:id/clips_item_overlay_component}
+                                                        android.widget.FrameLayout{eefcf44 V.E...... ........ 0,0-1080,2030}
+                                                          com.instagram.common.ui.base.IgFrameLayout{fda282d V.E...... ........ 0,0-1080,2030}
+                                                            android.view.ViewStub{98f9d69 G.E...... ......I. 0,0-0,0 #7f0b4419 app:id/translated_captions_stickers_stub}
+                                                            android.view.ViewStub{c5233ee G.E...... ......I. 0,0-0,0 #7f0b441f app:id/translated_text_sticker_stub}
+                                                            android.view.ViewStub{2e6d08f G.E...... ......I. 0,0-0,0 #7f0b441a app:id/translated_stickers_debugger_stub}
+                                                        com.facebook.litho.ComponentHost{d6bad5f V.ED..... ........ 372,847-708,1183}
+                                                      com.facebook.litho.ComponentHost{c25f3ac V.ED..... ........ 0,0-1080,2030}
+                                                        com.facebook.litho.ComponentHost{f6f5875 V.ED..... ........ 0,1584-943,2004 #7f0b0bd4 app:id/clips_media_info_component}
+                                                          com.facebook.litho.ComponentHost{eda800a V.ED..... ........ 0,0-943,383}
+                                                            com.facebook.litho.ComponentHost{7e957 V.ED..... ........ 0,0-943,168}
+                                                              com.facebook.litho.ComponentHost{cc10c44 V.ED..... ........ 42,0-210,126 #7f0b19bb app:id/friendly_bubbles_component}
+                                                                com.facebook.litho.ComponentHost{5e1a329 V.ED..... ........ 0,21-168,147}
+                                                                  com.instagram.common.ui.widget.imageview.CircularImageView{b7f26ae V.ED..... ........ 21,0-147,126}
+                                                                  com.facebook.litho.ComponentHost{e78ddc8 V.ED..... ........ 97,76-147,126}
+                                                            com.facebook.litho.ComponentHost{fffd647 V.ED..... ........ 0,168-943,383}
+                                                              com.facebook.litho.ComponentHost{9598fe3 V.ED..... ........ 42,0-943,0}
+                                                              com.facebook.litho.ComponentHost{ad8975e V.ED..... ........ 42,0-943,0}
+                                                              com.facebook.litho.ComponentHost{a363555 V.ED..... ........ 42,0-943,215}
+                                                                com.facebook.litho.ComponentHost{212cb6a V.ED..... ........ 0,0-901,141}
+                                                                  com.facebook.litho.ComponentHost{9f7185b VFED..C.. ........ 0,0-416,141 #7f0b0b4b app:id/clips_author_info_component}
+                                                                    com.instagram.common.ui.widget.imageview.CircularImageView{90348f8 VFED..... ........ 10,36-105,131 #7f0b0b4c app:id/clips_author_profile_pic}
+                                                                    com.instagram.ui.widget.gradientspinner.GradientSpinner{104df37 V.ED..... ........ 0,26-115,141}
+                                                                    com.facebook.litho.ComponentHost{69ffca4 VFED..C.. ........ 115,60-416,108}
+                                                                      com.facebook.litho.ComponentHost{bf0ba0d VFED..C.. ........ 0,0-301,48 #7f0b0b4d app:id/clips_author_username}
+                                                                com.facebook.litho.ComponentHost{fbe37d3 V.ED..... ........ 0,141-901,215 #7f0b0b56 app:id/clips_caption_component}
+                                                                  com.facebook.litho.widget.LithoScrollView{b87940e VFED..... ........ 0,0-901,74}
+                                                                    X.0ADa{ffbea09 V.ED..... ........ 0,11-901,74}
+                                                                      com.facebook.litho.ComponentHost{8aa7e2f VFED..C.. ........ 0,0-901,63}
+                                                        com.facebook.litho.ComponentHost{56ace4b V.ED..... ........ 943,977-1080,2004 #7f0b0c77 app:id/clips_ufi_component}
+                                                          com.facebook.litho.ComponentHost{256e028 V.ED..... ........ 0,0-116,1006}
+                                                            com.facebook.litho.ComponentHost{e39d141 V.ED..... ........ 0,0-116,1006}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{5a616e6 VFED..CL. ........ 0,0-116,116 #7f0b23b9 app:id/like_button}
+                                                              com.facebook.litho.ComponentHost{21b8c40 VFED..CL. ........ 0,116-116,178 #7f0b23bb app:id/like_count}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{29446ca VFED..C.. ........ 0,178-116,294 #7f0b0d81 app:id/comment_button}
+                                                              com.facebook.litho.ComponentHost{efe03b VFED..C.. ........ 0,294-116,356 #7f0b0d98 app:id/comment_count}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{bfe9d04 VFED..C.. ........ 0,356-116,472}
+                                                              com.facebook.litho.ComponentHost{45842ed VFED..C.. ........ 0,472-116,534 #7f0b3601 app:id/repost_count}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{562c00f VFED..CL. ........ 0,534-116,650 #7f0b12ee app:id/direct_share_button}
+                                                              com.facebook.litho.ComponentHost{c2a889c VFED..CL. ........ 0,650-116,712 #7f0b44f7 app:id/ufi_text_component}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{218a207 VFED..CL. ........ 0,712-116,828 #7f0b38ca app:id/save_button}
+                                                              com.facebook.litho.ComponentHost{e454f34 VFED..CL. ........ 0,828-116,890 #7f0b38d9 app:id/save_count}
+                                                              com.instagram.common.ui.base.IgSimpleImageView{6d6dad2 VFED..C.. ........ 0,890-116,1006 #7f0b0c7a app:id/clips_ufi_more_button_component}
+                                                        com.facebook.litho.ComponentHost{9357a3 V.ED..... ........ 0,2004-1080,2004}
+                                                        com.facebook.litho.ComponentHost{e822aa0 V.ED..... ........ 0,2004-1080,2030}
+                                                      com.facebook.litho.ComponentHost{fef50cc V.ED..... ........ 0,2030-1080,2030}
+                                                      com.facebook.litho.ComponentHost{d4bbf15 I.ED..... ......ID 948,0-1080,132 #7f0b4761 app:id/watch_and_comment_audio_toggle_component}
+                                                        com.facebook.litho.ComponentHost{cb6f22a V.ED..... ......ID 32,32-100,100}
+                                                          com.instagram.common.ui.base.IgSimpleImageView{e2a181b V.ED..... ......ID 18,18-50,50}
+                                          android.view.ViewStub{d6c8f1c G.E...... ......I. 0,0-0,0 #7f0b0c32 app:id/clips_scrolling_refresh_container_view_stub}
+                                          android.view.ViewStub{67ba725 G.E...... ......I. 0,0-0,0 #7f0b0bbe app:id/clips_homecoming_refresh_container_view_stub}
+                                          android.view.ViewStub{b31a0fa G.E...... ......I. 0,0-0,0 #7f0b0bd9 app:id/clips_navigation_bar_container}
+                                          android.view.ViewStub{e89e6ab G.E...... ......I. 0,0-0,0 #7f0b0c97 app:id/clips_viewer_empty_state_container}
+                                        android.view.ViewStub{8418108 G.E...... ......I. 0,0-0,0 #7f0b0c4a app:id/clips_sponsored_pool_debug_overlay}
+                                        android.view.ViewStub{d6490a1 G.E...... ......I. 0,0-0,0 #7f0b0c8a app:id/clips_viewer_common_currency_debug_overlay}
+                                        com.instagram.common.ui.base.IgLinearLayout{39b5910 V.E...... ........ 0,0-0,0 #7f0b0c92 app:id/clips_viewer_debug_container}
+                                          android.view.ViewStub{568d2c6 G.E...... ......I. 0,0-0,0 #7f0b0c95 app:id/clips_viewer_debug_overlay}
+                                          android.view.ViewStub{8fe4287 G.E...... ......I. 0,0-0,0 #7f0b0c91 app:id/clips_viewer_debug_center_metadata_stub}
+                                          android.view.ViewStub{7f1a5b4 G.E...... ......I. 0,0-0,0 #7f0b0c94 app:id/clips_viewer_debug_delivery_infra_stub}
+                                          android.view.ViewStub{f9895dd G.E...... ......I. 0,0-0,0 #7f0b0ca6 app:id/clips_viewer_pae_debug_overlay_stub}
+                                        android.view.ViewStub{78f5552 G.E...... ......I. 0,0-0,0 #7f0b0caa app:id/clips_viewer_sfd_debug_overlay_stub}
+                                        android.view.ViewStub{3728023 G.E...... ......I. 0,0-0,0 #7f0b0cac app:id/clips_viewer_sfd_free_nav_debug_overlay_stub}
+                                        com.instagram.common.ui.base.IgLinearLayout{a7fc09 G.E...... ......I. 0,0-1080,2030 #7f0b0c98 app:id/clips_viewer_empty_state_friending_unit_litho_container}
+                                        instagram.features.clips.viewer.actionbar.ClipsViewerActionBar{e473e0e V.E...... ........ 0,0-1080,147 #7f0b0c80 app:id/clips_viewer_action_bar}
+                                          com.instagram.common.ui.base.IgLinearLayout{611e02f V.E...... ........ 0,0-125,147 #7f0b0b2d app:id/clips_action_bar_start_action_buttons}
+                                            android.widget.ImageView{86a5db3 VFED..CL. ........ 0,23-125,147}
+                                          android.view.ViewStub{8dd6920 G.E...... ......I. 0,0-0,0 #7f0b0b27 app:id/clips_action_bar_sender_info_stub}
+                                          com.instagram.common.ui.base.IgLinearLayout{b44f63c V.E...... ........ 219,0-860,147 #7f0b0c83 app:id/clips_viewer_action_bar_title_container}
+                                            com.instagram.common.ui.base.IgTextView{93d2d1a G.ED..... ......ID 0,0-0,0 #7f0b0c82 app:id/clips_viewer_action_bar_title}
+                                            android.view.ViewStub{b0db2d9 G.E...... ......I. 0,0-0,0 #7f0b0c85 app:id/clips_viewer_action_bar_wordmark_title_stub}
+                                            com.instagram.common.ui.base.IgSimpleImageView{e29749e G.ED..... ......I. 0,0-0,0 #7f0b0c81 app:id/clips_viewer_action_bar_accessory_icon}
+                                            com.google.android.material.tabs.TabLayout{ee6504b VFED..... ........ 46,40-656,129 #7f0b00e6 app:id/action_bar_tab_layout}
+                                              X.01FQ{478b435 V.ED..... ........ 0,0-610,89}
+                                                X.01GS{dd0666c VFE...CL. ..S..A.. 0,0-223,89}
+                                                  androidx.appcompat.widget.AppCompatImageView{962fb7f G.ED..... ..S..AI. 0,0-0,0}
+                                                  androidx.appcompat.widget.AppCompatTextView{afff74c G.ED..... ..S..AID 0,0-0,0}
+                                                  com.instagram.common.ui.base.IgLinearLayout{94fe23b V.E...... ..S..A.. 5,0-223,89}
+                                                    com.instagram.common.ui.base.IgTextView{cb63791 V.ED..... ..S..A.. 0,0-165,89 #1020014 android:id/text1}
+                                                    com.instagram.common.ui.base.IgSimpleImageView{44b10ca I.ED..... ..S..AI. 165,13-197,76 #1020006 android:id/icon}
+                                                X.01GS{30d5eb1 VFE...CL. ........ 223,0-610,89}
+                                                  androidx.appcompat.widget.AppCompatImageView{d1da395 G.ED..... ......I. 0,0-0,0}
+                                                  androidx.appcompat.widget.AppCompatTextView{7b43caa G.ED..... ......ID 0,0-0,0}
+                                                  com.instagram.common.ui.base.IgLinearLayout{9aa06f6 V.E...... ........ 5,0-387,89}
+                                                    com.instagram.common.ui.base.IgTextView{60070f6 V.ED..... ........ 0,0-222,89 #1020014 android:id/text1}
+                                                    com.instagram.common.ui.base.IgSimpleImageView{4df3cf7 V.ED..... ........ 222,13-361,76 #1020006 android:id/icon}
+                                          com.instagram.common.ui.base.IgLinearLayout{dcb4fc5 V.E...... ........ 1059,0-1059,147 #7f0b0b12 app:id/clips_action_bar_end_action_buttons}
+                                        android.view.ViewStub{7b5d09b G.E...... ......I. 0,0-0,0 #7f0b38e6 app:id/save_popout_image_stub}
+                                        android.view.ViewStub{db3c38 G.E...... ......I. 0,0-0,0 #7f0b34b9 app:id/reel_question_text_response_composer_stub}
+                                        android.view.ViewStub{501e411 G.E...... ......I. 0,0-0,0 #7f0b0b50 app:id/clips_background_dimmer_stub}
+                                        android.view.ViewStub{b717976 G.E...... ......I. 0,0-0,0 #7f0b0ba4 app:id/clips_emoji_reactions_balloons_viewstub}
+                                        android.view.ViewStub{996db77 G.E...... ......I. 0,0-0,0 #7f0b0ba3 app:id/clips_emoji_reaction_bar_stub}
+                                        android.view.ViewStub{123e3e4 G.E...... ......I. 0,0-0,0 #7f0b3bb8 app:id/shop_lab_eyebrow_stub}
+                                        com.instagram.common.ui.base.IgFrameLayout{20fb04d G.E...... ......I. 0,0-0,0 #7f0b0b4e app:id/clips_autoscroll_recently_viewed_button}
+                                          com.instagram.common.ui.base.IgSimpleImageView{f3b702 V.ED..... ......ID 0,0-0,0}
+                                          com.instagram.common.ui.base.IgTextView{713b813 V.ED..... ......ID 0,0-0,0}
+                                        android.view.ViewStub{72d5a50 G.E...... ......I. 0,0-0,0 #7f0b0cb3 app:id/clips_your_algo_chip_fly_overlay_stub}
+                                      com.instagram.common.ui.base.IgLinearLayout{c6e33d8 V.E...... ........ 0,2030-1080,2188 #7f0b0ba8 app:id/clips_footer_mask_container}
+                                        android.view.ViewStub{9b40449 G.E...... ......I. 0,0-0,0 #7f0b0bd1 app:id/clips_long_press_controls_footer_stub}
+                                        android.view.ViewStub{46a414e G.E...... ......I. 0,0-0,0 #7f0b0bf9 app:id/clips_pause_controls_footer_stub}
+                                        com.instagram.common.ui.base.IgFrameLayout{4a162bb V.E...... ........ 0,0-1080,158}
+                                          com.instagram.common.ui.base.IgLinearLayout{8e8434a V.E...... ........ 42,21-1038,147 #7f0b0d8a app:id/comment_composer_inner_layout}
+                                            com.instagram.common.ui.base.IgTextView{25920b5 VFED..C.. ........ 0,0-996,126 #7f0b0d94 app:id/comment_composer_text_view}
+                                            android.view.ViewStub{177c26f G.E...... ......I. 0,0-0,0 #7f0b0c8f app:id/clips_viewer_cta_button_stub}
+                                        android.view.ViewStub{e15cb7c G.E...... ......I. 0,0-0,0 #7f0b0b64 app:id/clips_control_panel_footer_stub}
+                                        com.instagram.common.ui.base.IgFrameLayout{ff3a5f0 G.E...... ......ID 0,0-0,0 #7f0b0c35 app:id/clips_self_view_footer_navbar_container}
+                                          com.instagram.common.ui.base.IgLinearLayout{b5b6e33 V.E...... ......I. 0,0-0,0 #7f0b2a1e app:id/navbar_content_layout}
+                                            com.instagram.common.ui.base.IgLinearLayout{28df1a2 VFE...C.. ......I. 0,0-0,0 #7f0b0c34 app:id/clips_self_view_footer_navbar_button_container}
+                                              com.instagram.common.ui.base.IgSimpleImageView{12f9c05 V.ED..... ......ID 0,0-0,0 #7f0b18ff app:id/footer_navbar_button_icon}
+                                              com.instagram.common.ui.base.IgTextView{559b16d V.ED..... ......I. 0,0-0,0 #7f0b1900 app:id/footer_navbar_button_text}
+                                            android.widget.Space{3ad245a I.ED..... ......I. 0,0-0,0 #7f0b2a21 app:id/navbar_space}
+                                            com.instagram.common.ui.base.IgLinearLayout{968168b V.E...... ......I. 0,0-0,0 #7f0b0c37 app:id/clips_self_view_right_side_buttons_container}
+                                        android.view.ViewStub{2b22368 G.E...... ......I. 0,0-0,0 #7f0b0be2 app:id/clips_notes_composer_stub}
+                                        android.view.ViewStub{712f381 G.E...... ......I. 0,0-0,0 #7f0b0ba9 app:id/clips_friend_lane_composer_stub}
+                                        android.view.ViewStub{92c26 G.E...... ......I. 0,0-0,0 #7f0b0b5d app:id/clips_chain_stub}
+                                        android.view.ViewStub{abf9067 G.E...... ......I. 0,0-0,0 #7f0b0b6a app:id/clips_creator_pick_bar_stub}
+                                        android.view.ViewStub{83a0e14 G.E...... ......I. 0,0-0,0 #7f0b0c60 app:id/clips_teen_projects_question_prompt_stub}
+                                        android.view.ViewStub{87a46bd G.E...... ......I. 0,0-0,0 #7f0b34b6 app:id/reel_question_response_privacy_nux_stub}
+                                        android.view.ViewStub{cbe4b2 G.E...... ......I. 0,0-0,0 #7f0b0c26 app:id/clips_reply_bar_stub}
+                                        android.view.ViewStub{a2acc03 G.E...... ......I. 0,0-0,0 #7f0b0c15 app:id/clips_read_only_reply_bar_stub}
+                                        android.view.ViewStub{bb3f780 G.E...... ......I. 0,0-0,0 #7f0b0caf app:id/clips_voice_instructions_stub}
+                                        android.view.ViewStub{e0991b9 G.E...... ......I. 0,0-0,0 #7f0b0ba7 app:id/clips_follow_request_footer_stub}
+                                        android.view.ViewStub{28f99fe G.E...... ......I. 0,0-0,0 #7f0b1887 app:id/floating_send_stub}
+                                        android.view.ViewStub{84255f G.E...... ......I. 0,0-0,0 #7f0b21bf app:id/interest_banner_send_stub}
+                                        android.view.ViewStub{2210bac G.E...... ......I. 0,0-0,0 #7f0b21bc app:id/interest_banner_reply_bar_stub}
+                                        android.view.ViewStub{ca89075 G.E...... ......I. 0,0-0,0 #7f0b0521 app:id/basel_cta_stub}
+                                        android.view.ViewStub{f47580a G.E...... ......I. 0,0-0,0 #7f0b0379 app:id/attribution_bottom_bar_stub}
+                                        android.view.ViewStub{fefb87b G.E...... ......I. 0,0-0,0 #7f0b0377 app:id/attribution_bottom_bar_footer_stub}
+                                        android.view.ViewStub{d693698 G.E...... ......I. 0,0-0,0 #7f0b3bb5 app:id/shop_lab_entry_point_stub}
+                                        android.view.ViewStub{5febef1 G.E...... ......I. 0,0-0,0 #7f0b0b55 app:id/clips_bottom_space_filler_stub}
+                                    android.view.ViewStub{b0aead6 G.E...... ......I. 0,0-0,0 #7f0b0cb2 app:id/clips_voice_recording_stub}
+                                    android.view.ViewStub{eb76157 G.E...... ......I. 0,0-0,0 #7f0b0cb1 app:id/clips_voice_lock_stub}
+                                    android.view.ViewStub{4072444 G.E...... ......I. 0,0-0,0 #7f0b155e app:id/emoji_reaction_animation_stub}
+                                    android.view.ViewStub{4af592d G.E...... ......I. 0,0-0,0 #7f0b0b52 app:id/clips_bottom_sheet_container_stub}
+                                    android.view.ViewStub{1a2de62 G.E...... ......I. 0,0-0,0 #7f0b2566 app:id/main_feed_fab_stub}
+                                    android.view.ViewStub{3e6bbf3 G.E...... ......I. 0,0-0,0 #7f0b2459 app:id/live_embed_container_stub}
+                              android.widget.FrameLayout{adfb21d V.E...... ........ 1080,0-2160,2188 #39e}
+                                com.instagram.common.ui.base.IgFrameLayout{24d2fde V.E...... ........ 0,0-1080,2188 #7f0b22b5 app:id/layout_container_swipeable}
+                              android.widget.FrameLayout{b4ede53 V.E...... ........ 2160,0-3240,2188 #39f}
+                                com.instagram.common.ui.base.IgFrameLayout{12fe8bc V.E...... ........ 0,0-1080,2188 #7f0b22b5 app:id/layout_container_swipeable}
+                              android.widget.FrameLayout{49b51f9 V.E...... ........ 3240,0-4320,2188 #3a0}
+                                com.instagram.common.ui.base.IgFrameLayout{654274a V.E...... ........ 0,0-1080,2188 #7f0b22b5 app:id/layout_container_swipeable}
+                              android.widget.FrameLayout{4008e8f V.E...... ........ 4320,0-5400,2188 #3a1}
+                                com.instagram.common.ui.base.IgFrameLayout{6d3c708 V.E...... ........ 0,0-1080,2188 #7f0b22b5 app:id/layout_container_swipeable}
+                          android.view.ViewStub{9c6faad G.E...... ......I. 0,0-0,0 #7f0b228e app:id/layout_bottom_searchbar}
+                          android.view.ViewStub{8e7a1e2 G.E...... ......I. 0,0-0,0 #7f0b0705 app:id/bounceback_toast_stub}
+                          com.instagram.common.ui.base.IgView{89144ff G.ED..... ......I. 0,2061-1080,2062 #7f0b4078 app:id/tab_bar_shadow}
+                          com.instagram.common.ui.widget.touchinterceptorlayout.TouchInterceptorLinearLayout{250c915 G.E...... ......ID 0,2062-1080,2188 #7f0b4077 app:id/tab_bar}
+                            com.instagram.ui.widget.proxy.ProxyFrameLayout{51a42cc VFE...CL. ..S....D 0,0-216,126 #7f0b17dd app:id/feed_tab}
+                              android.view.ViewStub{4bef973 G.E...... ..S...I. 0,0-0,0 #7f0b2b46 app:id/notification_view_stub}
+                              com.instagram.common.ui.colorfilter.ColorFilterAlphaImageView{4e8342a V.ED..... ..S...ID 76,31-139,94 #7f0b4081 app:id/tab_icon}
+                              android.view.ViewStub{7437030 G.E...... ..S...I. 0,0-0,0 #7f0b408d app:id/tab_new_badge}
+                            com.instagram.ui.widget.proxy.ProxyFrameLayout{93f321b VFE...CL. .......D 216,0-432,126 #7f0b0c5b app:id/clips_tab}
+                              android.view.ViewStub{90594a9 G.E...... ......I. 0,0-0,0 #7f0b2b46 app:id/notification_view_stub}
+                              com.instagram.common.ui.colorfilter.ColorFilterAlphaImageView{d0ebfb8 V.ED..... ......ID 76,31-139,94 #7f0b4081 app:id/tab_icon}
+                              android.view.ViewStub{e61fa2e G.E...... ......I. 0,0-0,0 #7f0b408d app:id/tab_new_badge}
+                            com.instagram.ui.widget.proxy.ProxyFrameLayout{e01e191 VFE...CL. ......ID 432,0-648,126 #7f0b132d app:id/direct_tab}
+                              com.instagram.common.ui.colorfilter.ColorFilterAlphaImageView{ad68f6 V.ED..... ......ID 76,31-139,94 #7f0b4081 app:id/tab_icon}
+                              com.instagram.common.ui.base.IgTextView{ce38c0e V.ED..... ......ID 126,69-152,95 #7f0b2b25 app:id/notification}
+                            com.instagram.ui.widget.proxy.ProxyFrameLayout{414d4f7 VFE...CL. .......D 648,0-864,126 #7f0b39cf app:id/search_tab}
+                              android.view.ViewStub{785b9cf G.E...... ......I. 0,0-0,0 #7f0b2b46 app:id/notification_view_stub}
+                              com.instagram.common.ui.colorfilter.ColorFilterAlphaImageView{3cc1f64 V.ED..... ......ID 76,31-139,94 #7f0b4081 app:id/tab_icon}
+                              android.view.ViewStub{7a75f5c G.E...... ......I. 0,0-0,0 #7f0b408d app:id/tab_new_badge}
+                            com.instagram.notifications.badging.ui.component.ToastingBadge{ad205cd VFE...CL. ......ID 864,0-1080,126 #7f0b30d2 app:id/profile_tab}
+                              androidx.constraintlayout.widget.ConstraintLayout{eddcdd0 V.E...... ......ID 0,0-216,126 #7f0b4802 app:id/wrapper}
+                                com.instagram.common.ui.base.IgFrameLayout{137c993 V.E...... .......D 69,24-148,103 #7f0b0e9d app:id/container}
+                                  android.view.ViewStub{e79d265 G.E...... ......I. 0,0-0,0 #7f0b4083 app:id/tab_icon_stub}
+                                  com.instagram.common.ui.widget.imageview.CircularImageView{c7ba301 V.ED..... ......ID 0,0-79,79 #7f0b4076 app:id/tab_avatar}
+                                android.view.ViewStub{7178b3a G.E...... ......I. 0,0-0,0 #7f0b140d app:id/dot_badge_view_stub}
+                                com.instagram.common.ui.base.IgView{80631c9 V.ED..... ......ID 127,76-153,102 #7f0b2384 app:id/led_badge}
+                                com.instagram.common.ui.base.IgTextView{a4e23eb G.ED..... ......I. 0,0-0,0 #7f0b2b72 app:id/number_badge}
+                          android.view.ViewStub{4f91548 G.E...... ......I. 0,0-0,0 #7f0b11a2 app:id/devserver_indicator_stub}
+                          android.view.ViewStub{3a2fe1 G.E...... ......I. 0,0-0,0 #7f0b0bcd app:id/clips_keyframe_indicator_stub}
+                          android.view.ViewStub{c632106 G.E...... ......I. 0,0-0,0 #7f0b47db app:id/whitehat_indicator_stub}
+                          android.view.ViewStub{ae913c7 G.E...... ......I. 0,0-0,0 #7f0b276a app:id/meta_ai_status_indicator_stub}
+                          android.view.ViewStub{c2e3df4 G.E...... ......I. 0,0-0,0 #7f0b3208 app:id/qe_tool_overlay_stub}
+                          android.view.ViewStub{548e91d G.E...... ......I. 0,0-0,0 #7f0b20cf app:id/injected_stories_tool_overlay_stub}
+                          android.view.ViewStub{804792 G.E...... ......I. 0,0-0,0 #7f0b2a81 app:id/network_shaping_stub}
+                          android.view.ViewStub{9592563 G.E...... ......I. 0,0-0,0 #7f0b4729 app:id/voice_message_bar_stub}
+                          com.instagram.common.ui.widget.touchinterceptorlayout.TouchInterceptorFrameLayout{1b2b1b9 G.E...... ......I. 0,0-0,0 #7f0b00bb app:id/action_bar_container}
+                            com.instagram.common.ui.base.IgView{dcd9780 G.ED..... ......ID 0,0-0,0 #7f0b00da app:id/action_bar_shadow}
+                            android.view.ViewStub{1eb4560 G.E...... ......I. 0,0-0,0 #7f0b00c2 app:id/action_bar_immersive_gradient_view_stub}
+                            android.view.ViewStub{88ffa19 G.E...... ......I. 0,0-0,0 #7f0b00c0 app:id/action_bar_gradient_view_stub}
+                            com.instagram.common.ui.base.IgFrameLayout{bd74ade V.E...... ......I. 0,0-0,0 #7f0b00fe app:id/action_bar_wrapper}
+                              com.instagram.common.ui.base.IgLinearLayout{92eb4bf V.E...... ......ID 0,0-0,0 #7f0b00a9 app:id/action_bar}
+                                com.instagram.common.ui.base.IgLinearLayout{eaf578c V.E...... ......I. 0,0-0,0 #7f0b00cc app:id/action_bar_new_title_container}
+                                  com.instagram.actionbar.ActionBarBackButtonView{f9d1ed5 V.ED..... ......ID 0,0-0,0 #7f0b00b2 app:id/action_bar_button_back}
+                                  com.instagram.common.ui.base.IgFrameLayout{30936ea G.E...... ......I. 0,0-0,0 #7f0b00ed app:id/action_bar_title_accessory_view}
+                                  com.instagram.common.ui.base.IgLinearLayout{ca3dddb V.E...... ......I. 0,0-0,0}
+                                    com.instagram.common.ui.base.IgTextView{1c06078 V.ED..... ......I. 0,0-0,0 #7f0b00e0 app:id/action_bar_subtitle_above}
+                                    com.instagram.common.ui.base.IgLinearLayout{11dd351 V.E...... ......I. 0,0-0,0 #7f0b00ee app:id/action_bar_title_and_icons}
+                                      com.instagram.common.ui.base.IgTextView{1bbd7b6 G.ED..... ......I. 0,0-0,0 #7f0b00eb app:id/action_bar_title}
+                                      com.instagram.common.ui.base.IgTextView{5787cb7 G.ED..... ......I. 0,0-0,0 #7f0b00c5 app:id/action_bar_large_title}
+                                      com.instagram.common.ui.base.IgTextView{6d70c24 G.ED..... ......I. 0,0-0,0 #7f0b00c6 app:id/action_bar_large_title_auto_size}
+                                      com.instagram.common.ui.base.IgLinearLayout{71b538d V.E...... ......I. 0,0-0,0 #7f0b00c9 app:id/action_bar_little_icon_container}
+                                        com.instagram.common.ui.base.IgSimpleImageView{625b942 G.ED..... ......I. 0,0-0,0 #7f0b00f8 app:id/action_bar_title_verified_badge}
+                                        com.instagram.common.ui.base.IgSimpleImageView{78e2d53 G.ED..... ......I. 0,0-0,0 #7f0b00ef app:id/action_bar_title_chevron}
+                                        com.instagram.common.ui.base.IgFrameLayout{a8ac690 G.E...... ......I. 0,0-0,0 #7f0b00d4 app:id/action_bar_red_dot_container}
+                                          com.instagram.common.ui.base.IgSimpleImageView{8f69b89 V.ED..... ......ID 0,0-0,0 #7f0b00f4 app:id/action_bar_title_red_dot}
+                                          com.instagram.common.ui.base.IgTextView{95a278e V.ED..... ......I. 0,0-0,0 #7f0b00f7 app:id/action_bar_title_unread_message_count}
+                                    com.instagram.common.ui.base.IgTextView{9444baf V.ED..... ......I. 0,0-0,0 #7f0b00e1 app:id/action_bar_subtitle_below}
+                                com.instagram.common.ui.base.IgFrameLayout{97dbbbc G.E...... ......I. 0,0-0,0 #7f0b00e8 app:id/action_bar_textview_custom_title_container}
+                                android.view.ViewStub{9246745 G.E...... ......I. 0,0-0,0 #7f0b00b1 app:id/action_bar_button_action_view_stub}
+                                android.view.ViewStub{552e9a G.E...... ......I. 0,0-0,0 #7f0b00ad app:id/action_bar_action_text_view_stub}
+                              com.instagram.common.ui.base.IgView{d93f3cb G.ED..... ......I. 0,0-0,0 #7f0b00fa app:id/action_bar_transparent_overlay}
+                              android.view.ViewStub{648d7a8 G.E...... ......I. 0,0-0,0 #7f0b0a14 app:id/center_container_view_stub}
+                              android.view.ViewStub{2a932c1 G.E...... ......I. 0,0-0,0 #7f0b3dc8 app:id/static_action_bar_button_back_view_stub}
+                          android.view.ViewStub{1c79a66 G.E...... ......I. 0,0-0,0 #7f0b2bdc app:id/ongoing_call_notification_bar_stub}
+                        android.view.ViewStub{3ec01a7 G.E...... ......I. 0,0-0,0 #7f0b1b87 app:id/gradient_background_view_stub}
+                      com.instagram.common.ui.base.IgFrameLayout{762325b V.E...... ........ 0,173-1080,2361 #7f0b22b4 app:id/layout_container_right}
+                      android.view.ViewStub{d895af8 G.E...... ......I. 0,0-0,0 #7f0b4846 app:id/zero_banner_stub}
+                      com.instagram.common.ui.base.IgFrameLayout{1037bd1 V.E...... ........ 0,173-1080,2361 #7f0b0144 app:id/activity_and_camera_shared_views_main_container}
+                        android.view.ViewStub{227c654 G.E...... ......I. 0,0-0,0 #7f0b1780 app:id/feed_ads_multi_bottom_sheet_container_stub}
+                        android.view.ViewStub{25539fd G.E...... ......I. 0,0-0,0 #7f0b06b1 app:id/bottom_sheet_container_stub}
+                        android.view.ViewStub{ca2f6f2 G.E...... ......I. 0,0-0,0 #7f0b39a9 app:id/search_container_stub}
+                      android.view.ViewStub{2db9636 G.E...... ......I. 0,0-0,0 #7f0b2dca app:id/pixel_guide_stub}
+                    android.view.ViewStub{9cd1143 G.E...... ......I. 0,0-0,0 #7f0b22fe app:id/layout_voice_message_bar_stub}
+                  android.view.ViewStub{464f3c0 G.E...... ......I. 0,0-0,0 #7f0b22d6 app:id/layout_meta_ai_voice_session_notification_stub}
+                  android.view.ViewStub{7c078f9 G.E...... ......I. 0,0-0,0 #7f0b28cb app:id/modal_container_stub}
+                  android.view.ViewStub{b65903e G.E...... ......I. 0,0-0,0 #7f0b2dc0 app:id/pip_fragment_container_stub}
+                  com.instagram.common.ui.base.IgFrameLayout{94fd87b V.E...... ........ 0,0-1080,2361 #7f0b2c81 app:id/overlay_layout_container}
+                    android.view.ViewStub{a257e9f G.E...... ......I. 0,0-0,0 #7f0b3c96 app:id/snack_bar_stub}
+                  android.view.ViewStub{c858bec G.E...... ......I. 0,0-0,0 #7f0b255a app:id/main_activity_splash_stub}
