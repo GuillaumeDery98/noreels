@@ -55,8 +55,12 @@ class ReelsBlockerService : AccessibilityService() {
             }
         } catch (e: IllegalStateException) {
             // Nodes can be recycled by the system while we walk them; the next event retries.
-            null
-        } ?: return
+            return
+        }
+        if (detection == null) {
+            decider.onNoDetection()
+            return
+        }
 
         val action = decider.decide(detection) ?: return
         perform(detection, action)

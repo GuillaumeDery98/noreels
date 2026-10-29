@@ -39,6 +39,26 @@ class BlockDeciderTest {
     }
 
     @Test
+    fun reentryAfterLeavingSurfaceReturnsBack() {
+        decider.decide(reels)
+        now = 500
+        decider.onNoDetection()
+        now = 1500
+
+        assertThat(decider.decide(reels)).isEqualTo(BlockAction.BACK)
+    }
+
+    @Test
+    fun debounceStillAppliesAfterNoDetection() {
+        decider.decide(reels)
+        now = 100
+        decider.onNoDetection()
+        now = 300
+
+        assertThat(decider.decide(reels)).isNull()
+    }
+
+    @Test
     fun differentSurfacesAreIndependent() {
         decider.decide(reels)
         now = 300
