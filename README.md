@@ -98,5 +98,3 @@ app/src/main/java/app/noreels/
 ├── data/        DataStore (réglages, blocages du jour), temps d'usage (UsageStatsManager)
 └── ui/          écran d'accueil Compose + ViewModel
 ```
-
-Design : [`docs/superpowers/specs/2026-10-29-noreels-design.md`](docs/superpowers/specs/2026-10-29-noreels-design.md).
