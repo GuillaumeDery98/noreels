@@ -7,6 +7,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import app.noreels.data.SettingsRepository
 import app.noreels.data.StatsRepository
 import app.noreels.data.UsageTimeRepository
+import app.noreels.data.WatchTimeRepository
 import app.noreels.rules.BlockingRules
 import app.noreels.rules.RulesParser
 import java.time.LocalDate
@@ -24,6 +25,8 @@ class AppContainer(context: Context) {
     val settings = SettingsRepository(appContext.dataStore)
 
     val stats = StatsRepository(appContext.dataStore) { LocalDate.now() }
+
+    val watchTime = WatchTimeRepository(appContext.dataStore) { LocalDate.now() }
 
     val usage = UsageTimeRepository(appContext) { System.currentTimeMillis() }
 }

@@ -35,4 +35,28 @@ class SettingsRepositoryTest {
         repository.setSurfaceEnabled("instagram.reels", true)
         assertThat(repository.disabledSurfaces.first()).isEmpty()
     }
+
+    @Test
+    fun allowanceDefaultsToZero() = runTest(UnconfinedTestDispatcher()) {
+        assertThat(repository().dailyAllowanceMinutes.first()).isEqualTo(0)
+    }
+
+    @Test
+    fun storesAllowance() = runTest(UnconfinedTestDispatcher()) {
+        val repository = repository()
+
+        repository.setDailyAllowanceMinutes(90)
+
+        assertThat(repository.dailyAllowanceMinutes.first()).isEqualTo(90)
+    }
+
+    @Test
+    fun rejectsAllowanceOutOfRange() = runTest(UnconfinedTestDispatcher()) {
+        val repository = repository()
+
+        assertThat(runCatching { repository.setDailyAllowanceMinutes(-1) }.exceptionOrNull())
+            .isInstanceOf(IllegalArgumentException::class.java)
+        assertThat(runCatching { repository.setDailyAllowanceMinutes(1440) }.exceptionOrNull())
+            .isInstanceOf(IllegalArgumentException::class.java)
+    }
 }
