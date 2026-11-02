@@ -6,6 +6,7 @@
   "allowanceTickMs": 1000,
   "allowanceMaxGapMs": 2000,
   "allowanceFlushMs": 15000,
+  "allowanceProbeWindowMs": 3000,
   "platforms": [
     {
       "id": "instagram",

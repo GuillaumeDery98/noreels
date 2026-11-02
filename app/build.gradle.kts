@@ -55,3 +55,9 @@ dependencies {
     testImplementation(libs.truth)
     testImplementation(libs.kotlinx.coroutines.test)
 }
+
+// Unit tests read the shipped rules from src/main/res/raw directly; declare them as inputs so a
+// rules-only change is never served from stale, up-to-date test results.
+tasks.withType<Test>().configureEach {
+    inputs.dir("src/main/res/raw").withPropertyName("shippedRules").withPathSensitivity(PathSensitivity.RELATIVE)
+}
