@@ -9,6 +9,12 @@ data class BlockingRules(
     val escalationWindowMs: Long,
     val contentEvaluationIntervalMs: Long,
     val maxTraversedNodes: Int,
+    /** While a surface is watched within the daily allowance, the service re-checks itself this often. */
+    val allowanceTickMs: Long,
+    /** Longest interval between two observations that still counts as watched time. */
+    val allowanceMaxGapMs: Long,
+    /** Watched time is written to storage at most this often while watching. */
+    val allowanceFlushMs: Long,
     val platforms: List<PlatformRule>,
     val browsers: List<BrowserRule>,
 )

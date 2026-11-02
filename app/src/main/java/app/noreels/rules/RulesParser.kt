@@ -14,6 +14,12 @@ object RulesParser {
     }
 
     private fun validate(rules: BlockingRules) {
+        require(rules.allowanceTickMs > 0 && rules.allowanceMaxGapMs > 0 && rules.allowanceFlushMs > 0) {
+            "Allowance timings must be positive"
+        }
+        require(rules.allowanceMaxGapMs >= rules.allowanceTickMs) {
+            "allowanceMaxGapMs must be at least allowanceTickMs, or ticks would never count"
+        }
         val keys = mutableSetOf<String>()
         for (platform in rules.platforms) {
             require(platform.packages.isNotEmpty()) { "Platform ${platform.id} has no package" }

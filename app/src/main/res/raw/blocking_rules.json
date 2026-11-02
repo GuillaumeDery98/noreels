@@ -3,6 +3,9 @@
   "escalationWindowMs": 2500,
   "contentEvaluationIntervalMs": 300,
   "maxTraversedNodes": 3000,
+  "allowanceTickMs": 1000,
+  "allowanceMaxGapMs": 2000,
+  "allowanceFlushMs": 15000,
   "platforms": [
     {
       "id": "instagram",
