@@ -77,6 +77,22 @@ class SurfaceDetectorTest {
     }
 
     @Test
+    fun facebookReelOpenedFromFeedFixtureDetected() {
+        val root = UiAutomatorFixture.load("fixtures/facebook_reel_viewer.xml")
+
+        val detection = detector.detect(FACEBOOK, root, screen, allEnabled)
+
+        assertThat(detection).isEqualTo(Detection("facebook", "reels", BlockAction.BACK))
+    }
+
+    @Test
+    fun facebookFeedWithReelsCarouselFixtureNotDetected() {
+        val root = UiAutomatorFixture.load("fixtures/facebook_feed_reels_carousel.xml")
+
+        assertThat(detector.detect(FACEBOOK, root, screen, allEnabled)).isNull()
+    }
+
+    @Test
     fun facebookUnselectedReelsTabIgnored() {
         val tab = FakeNode(contentDescription = "Reels, onglet 2 sur 6", isSelected = false, bounds = ScreenRect(180, 200, 360, 320))
         val root = FakeNode(children = listOf(tab))

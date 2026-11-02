@@ -59,7 +59,8 @@
           "label": "Reels (expérimental)",
           "type": "nodes",
           "nodes": [
-            { "contentDescriptionRegex": "(?i)^reels?\\b", "selected": true }
+            { "contentDescriptionRegex": "(?i)^reels?\\b", "selected": true },
+            { "contentDescriptionRegex": "(?i)^détails du reel$", "minWidthRatio": 0.8, "minHeightRatio": 0.5 }
           ]
         },
         {

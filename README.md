@@ -48,6 +48,7 @@ Les tests automatisés valident la logique sur deux captures réelles d'Instagra
 | 4 | YouTube (app) → onglet Shorts | Retour | Identifiants repris de SocialLite, à vérifier |
 | 5 | Snapchat → Spotlight | Retour | Identifiants repris de SocialLite, à vérifier |
 | 6 | Facebook → onglet Reels | Retour | **Expérimental** (hypothèse sur la description d'accessibilité) |
+| 6a | Facebook → toucher un Reel du carrousel « Reels » dans le fil | Retour au fil (le carrousel lui-même n'est pas bloqué) | Vérifiée sur capture réelle (Facebook 585, interface en français : description « Détails du reel ») |
 | 6b | Facebook → onglet « Reels » d'un profil | Risque de blocage (faux positif connu de la règle) : désactiver « Reels (expérimental) » si gênant | **Expérimental** |
 | 7 | Ouvrir TikTok | Retour à l'écran d'accueil du téléphone | Fiable (toute l'app) |
 | 8 | Brave ou Chrome → `youtube.com/shorts/…` | Retour | Vérifié sur émulateur (Brave 1.98.62 et Chrome) : la barre d'adresse contient le chemin |
@@ -69,6 +70,8 @@ grep -o 'app:id/[a-z_]*' dump.txt | sort -u            # identifiants des vues
 ```
 
 `uiautomator dump` échoue souvent sur les écrans vidéo (« could not get idle state ») ; `dumpsys activity` fonctionne. Un identifiant `app:id/x` s'écrit `<package>:id/x` dans le JSON. Pour ajouter un test sur capture réelle, extraire la section `View Hierarchy:` dans `app/src/test/resources/fixtures/` (voir `SurfaceDetectorTest`).
+
+Facebook masque ses identifiants de vues (`(name removed)`) : ses règles reposent sur les descriptions d'accessibilité, qui dépendent de la langue du téléphone. Pour les capturer, `adb shell uiautomator dump /sdcard/ui.xml` puis `adb pull /sdcard/ui.xml` ; le fichier XML se charge tel quel dans les tests avec `UiAutomatorFixture`.
 
 Types de règle :
 
