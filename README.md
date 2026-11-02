@@ -35,6 +35,15 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 2. Ouvrir NoReels → **Activer dans les réglages** → *Applications téléchargées* → *NoReels – blocage des Reels* → activer.
 3. Facultatif : **Autoriser l'accès** (statistiques d'utilisation) pour afficher le temps passé par application.
 
+## Temps de Reels par jour
+
+La carte **Temps de Reels par jour** de l'écran d'accueil fixe une réserve quotidienne (0 h 00 à 23 h 59), commune à toutes les plateformes. Tant qu'elle n'est pas épuisée, les vidéos courtes restent accessibles et le temps passé dessus est décompté ; ensuite, le blocage habituel reprend jusqu'à minuit. Par défaut, la réserve vaut 0 : blocage immédiat.
+
+- Seul le temps passé sur un écran bloquable compte (onglet Reels, Short, Spotlight, TikTok, URL dans le navigateur), écran allumé. Une vidéo en pause sur ces écrans compte aussi.
+- Un écran désactivé par son interrupteur n'est ni bloqué ni décompté.
+- L'écran d'accueil affiche le temps utilisé avec un décalage de 15 s au plus (écriture périodique).
+- Le faux positif connu de Facebook (onglet « Reels » d'un profil) consomme la réserve comme un vrai Reel.
+
 ## Test sur appareil (environ 5 minutes)
 
 Les tests automatisés valident la logique sur deux captures réelles d'Instagram 453 (fil d'accueil et onglet Reels). Les comportements ci-dessous dépendent des versions installées et doivent être vérifiés sur le téléphone.
@@ -55,6 +64,7 @@ Les tests automatisés valident la logique sur deux captures réelles d'Instagra
 | 8b | Brave ou Chrome → taper « tiktok.com » dans la barre, ou chercher « tiktok » | Aucun blocage pendant la saisie ni sur la page de résultats | Testé (JVM) |
 | 9 | Désactiver « Reels » d'Instagram dans NoReels, refaire 1 | Pas de blocage | Testé (JVM) |
 | 10 | Écran d'accueil NoReels | Compteur « Aujourd'hui » incrémenté | Testé (JVM) |
+| 11 | Réserve à 1 min, ouvrir un Short | Pas de blocage pendant environ 1 min, puis retour ; la carte affiche « 1 min sur 1 min » | Vérifié sur émulateur |
 
 ## Mettre à jour une règle
 
@@ -79,7 +89,7 @@ Types de règle :
 - `wholeApp` : toute l'application ;
 - `url` : la barre d'adresse d'un navigateur listé dans `browsers` contient l'un des `urlPatterns`.
 
-Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs` (si l'écran est toujours là après un retour, passage à « accueil »), `contentEvaluationIntervalMs` (fréquence d'analyse maximale par application).
+Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs` (si l'écran est toujours là après un retour, passage à « accueil »), `contentEvaluationIntervalMs` (fréquence d'analyse maximale par application), `allowanceTickMs` (vérification pendant le visionnage dans la réserve), `allowanceMaxGapMs` (écart maximal compté entre deux vérifications), `allowanceFlushMs` (fréquence d'écriture du temps visionné).
 
 ## Limites connues
 
@@ -94,7 +104,8 @@ Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs`
 app/src/main/java/app/noreels/
 ├── rules/       modèle + parseur validant blocking_rules.json
 ├── detection/   ScreenNode (abstraction), SurfaceDetector, BlockDecider — Kotlin pur, testé en JVM
+├── allowance/   AllowanceMeter (temps visionné du jour), décision du tick — Kotlin pur, testé en JVM
 ├── service/     ReelsBlockerService (accessibilité), adaptateur AccessibilityNodeInfo, statut
-├── data/        DataStore (réglages, blocages du jour), temps d'usage (UsageStatsManager)
+├── data/        DataStore (réglages, réserve, blocages et temps visionné du jour), temps d'usage (UsageStatsManager)
 └── ui/          écran d'accueil Compose + ViewModel
 ```

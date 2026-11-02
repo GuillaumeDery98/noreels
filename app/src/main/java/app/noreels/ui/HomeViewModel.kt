@@ -33,12 +33,20 @@ class HomeViewModel(
         container.settings.disabledSurfaces,
         container.stats.blocksToday,
         snapshot,
-    ) { disabled, blocks, system ->
-        buildHomeUiState(container.rules, disabled, blocks, system.usage, system.installed, system.serviceEnabled)
+        container.settings.dailyAllowanceMinutes,
+        container.watchTime.watchedToday,
+    ) { disabled, blocks, system, allowanceMinutes, watchedMs ->
+        buildHomeUiState(
+            container.rules, disabled, blocks, system.usage, system.installed, system.serviceEnabled,
+            allowanceMinutes, watchedMs,
+        )
     }.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
-        buildHomeUiState(container.rules, emptySet(), emptyMap(), null, emptySet(), serviceEnabled = false),
+        buildHomeUiState(
+            container.rules, emptySet(), emptyMap(), null, emptySet(), serviceEnabled = false,
+            allowanceMinutes = 0, watchedMs = 0,
+        ),
     )
 
     fun refresh() {
@@ -55,6 +63,10 @@ class HomeViewModel(
 
     fun setSurfaceEnabled(key: String, enabled: Boolean) {
         viewModelScope.launch { container.settings.setSurfaceEnabled(key, enabled) }
+    }
+
+    fun setDailyAllowance(minutes: Int) {
+        viewModelScope.launch { container.settings.setDailyAllowanceMinutes(minutes) }
     }
 
     private companion object {

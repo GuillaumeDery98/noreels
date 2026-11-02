@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
             NoReelsTheme {
                 LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { viewModel.refresh() }
                 val state by viewModel.uiState.collectAsStateWithLifecycle()
-                HomeScreen(state, viewModel::setSurfaceEnabled)
+                HomeScreen(state, viewModel::setSurfaceEnabled, viewModel::setDailyAllowance)
             }
         }
     }

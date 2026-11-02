@@ -17,7 +17,24 @@ class HomeUiStateTest {
         blocks: Map<String, Int> = emptyMap(),
         usage: Map<String, Long>? = emptyMap(),
         installed: Set<String> = allInstalled,
-    ) = buildHomeUiState(rules, disabled, blocks, usage, installed, serviceEnabled = true)
+        allowanceMinutes: Int = 0,
+        watchedMs: Long = 0,
+    ) = buildHomeUiState(rules, disabled, blocks, usage, installed, serviceEnabled = true, allowanceMinutes, watchedMs)
+
+    @Test
+    fun allowanceIsExposed() {
+        val state = build(allowanceMinutes = 30, watchedMs = 12 * 60_000L)
+
+        assertThat(state.allowanceMinutes).isEqualTo(30)
+        assertThat(state.watchedTodayMs).isEqualTo(12 * 60_000L)
+    }
+
+    @Test
+    fun watchedTimeIsCappedAtAllowance() {
+        val state = build(allowanceMinutes = 30, watchedMs = 40 * 60_000L)
+
+        assertThat(state.watchedTodayMs).isEqualTo(30 * 60_000L)
+    }
 
     @Test
     fun buildsPlatformsInRulesOrder() {
