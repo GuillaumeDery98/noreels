@@ -15,6 +15,8 @@ data class BlockingRules(
     val allowanceMaxGapMs: Long,
     /** Watched time is written to storage at most this often while watching. */
     val allowanceFlushMs: Long,
+    /** How long an unreadable foreground (transition, unlock) is re-checked before counting stops. */
+    val allowanceProbeWindowMs: Long,
     val platforms: List<PlatformRule>,
     val browsers: List<BrowserRule>,
 )

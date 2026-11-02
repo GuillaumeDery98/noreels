@@ -16,10 +16,9 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import app.noreels.NoReelsApplication
 import app.noreels.R
+import app.noreels.allowance.AllowanceController
 import app.noreels.allowance.AllowanceMeter
-import app.noreels.allowance.TickOutcome
-import app.noreels.allowance.stillWatching
-import app.noreels.allowance.tickOutcome
+import app.noreels.allowance.AllowanceStep
 import app.noreels.detection.BlockAction
 import app.noreels.detection.BlockDecider
 import app.noreels.detection.Detection
@@ -53,6 +52,9 @@ class ReelsBlockerService : AccessibilityService() {
     private val meter by lazy {
         AllowanceMeter(container.rules.allowanceMaxGapMs, container.rules.allowanceFlushMs)
     }
+    private val allowance by lazy {
+        AllowanceController(meter, container.rules.allowanceTickMs, container.rules.allowanceProbeWindowMs)
+    }
     private val powerManager by lazy { getSystemService(PowerManager::class.java) }
     private val handler = Handler(Looper.getMainLooper())
     private val tick = Runnable { onTick() }
@@ -60,18 +62,12 @@ class ReelsBlockerService : AccessibilityService() {
     @Volatile
     private var disabledSurfaces: Set<String> = emptySet()
 
-    @Volatile
-    private var allowanceMs = 0L
-
-    /** Package showing a surface watched within the allowance; null when nothing is being counted. */
-    private var watchedPackage: String? = null
-
     /** Last package evaluated, re-checked when the screen comes back on. */
     private var lastEvaluatedPackage: String? = null
 
     private val screenReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            lastEvaluatedPackage?.let(::evaluate)
+            apply(allowance.onScreenOn(SystemClock.uptimeMillis(), lastEvaluatedPackage))
         }
     }
     private var screenReceiverRegistered = false
@@ -81,7 +77,9 @@ class ReelsBlockerService : AccessibilityService() {
         serviceInfo = serviceInfo.apply { packageNames = container.rules.watchedPackages().toTypedArray() }
         scope.launch { container.settings.disabledSurfaces.collect { disabledSurfaces = it } }
         scope.launch {
-            container.settings.dailyAllowanceMinutes.collect { allowanceMs = TimeUnit.MINUTES.toMillis(it.toLong()) }
+            container.settings.dailyAllowanceMinutes.collect {
+                allowance.allowanceMs = TimeUnit.MINUTES.toMillis(it.toLong())
+            }
         }
         scope.launch { meter.restore(LocalDate.now(), container.watchTime.watchedToday.first()) }
         val screenEvents = IntentFilter().apply {
@@ -117,66 +115,57 @@ class ReelsBlockerService : AccessibilityService() {
                 it !in disabledSurfaces
             }
         } catch (e: IllegalStateException) {
-            // Nodes can be recycled by the system while we walk them; the next event retries.
+            // Nodes can be recycled by the system while we walk them; retry while a surface is watched.
+            apply(allowance.onEvaluationFailed())
             return
         }
         val now = SystemClock.uptimeMillis()
-        val today = LocalDate.now()
         if (detection == null) {
-            meter.observe(now, today, watching = false)
-            stopWatching()
-            decider.onNoDetection()
+            apply(allowance.onNoDetection(now, LocalDate.now()))
             return
         }
 
-        meter.observe(now, today, watching = powerManager.isInteractive)
-        val remainingMs = meter.remainingMs(today, allowanceMs)
-        if (remainingMs > 0) {
-            watchedPackage = foregroundPackage
-            scheduleTick(remainingMs)
-            flush(force = false)
-            return
-        }
-
-        stopWatching()
+        val step = allowance.onDetection(now, LocalDate.now(), foregroundPackage, powerManager.isInteractive)
+        apply(step)
+        if (step != AllowanceStep.Block) return
         val action = decider.decide(detection) ?: return
         perform(detection, action)
     }
 
     /** Counts watched time while a video plays without accessibility events, and notices leaving the app. */
     private fun onTick() {
-        val packageName = watchedPackage ?: return
-        val interactive = powerManager.isInteractive
         val foregroundPackage = try {
             rootInActiveWindow?.packageName?.toString()
         } catch (e: IllegalStateException) {
             null
         }
-        val today = LocalDate.now()
-        meter.observe(SystemClock.uptimeMillis(), today, stillWatching(interactive, foregroundPackage, packageName))
-        val remainingMs = meter.remainingMs(today, allowanceMs)
-        when (tickOutcome(interactive, foregroundPackage, packageName, remainingMs)) {
-            TickOutcome.CONTINUE -> {
-                scheduleTick(remainingMs)
+        apply(allowance.onTick(SystemClock.uptimeMillis(), LocalDate.now(), powerManager.isInteractive, foregroundPackage))
+    }
+
+    private fun apply(step: AllowanceStep) {
+        when (step) {
+            is AllowanceStep.Watch -> {
+                scheduleTick(step.delayMs)
                 flush(force = false)
             }
-            TickOutcome.STOP -> {
-                stopWatching()
+            is AllowanceStep.Probe -> scheduleTick(step.delayMs)
+            AllowanceStep.Stop -> {
+                handler.removeCallbacks(tick)
+                flush(force = true)
                 decider.onNoDetection()
             }
-            TickOutcome.ENFORCE -> evaluate(packageName)
+            AllowanceStep.Block -> {
+                handler.removeCallbacks(tick)
+                flush(force = true)
+            }
+            is AllowanceStep.Evaluate -> evaluate(step.packageName)
+            AllowanceStep.Idle -> Unit
         }
     }
 
-    private fun scheduleTick(remainingMs: Long) {
+    private fun scheduleTick(delayMs: Long) {
         handler.removeCallbacks(tick)
-        handler.postDelayed(tick, minOf(container.rules.allowanceTickMs, remainingMs))
-    }
-
-    private fun stopWatching() {
-        handler.removeCallbacks(tick)
-        watchedPackage = null
-        flush(force = true)
+        handler.postDelayed(tick, delayMs)
     }
 
     private fun flush(force: Boolean) {

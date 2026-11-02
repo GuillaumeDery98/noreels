@@ -89,7 +89,7 @@ Types de règle :
 - `wholeApp` : toute l'application ;
 - `url` : la barre d'adresse d'un navigateur listé dans `browsers` contient l'un des `urlPatterns`.
 
-Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs` (si l'écran est toujours là après un retour, passage à « accueil »), `contentEvaluationIntervalMs` (fréquence d'analyse maximale par application), `allowanceTickMs` (vérification pendant le visionnage dans la réserve), `allowanceMaxGapMs` (écart maximal compté entre deux vérifications), `allowanceFlushMs` (fréquence d'écriture du temps visionné).
+Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs` (si l'écran est toujours là après un retour, passage à « accueil »), `contentEvaluationIntervalMs` (fréquence d'analyse maximale par application), `allowanceTickMs` (vérification pendant le visionnage dans la réserve), `allowanceMaxGapMs` (écart maximal compté entre deux vérifications), `allowanceFlushMs` (fréquence d'écriture du temps visionné), `allowanceProbeWindowMs` (durée pendant laquelle un premier plan illisible, transition ou déverrouillage, est revérifié avant d'arrêter le décompte).
 
 ## Limites connues
 
@@ -104,7 +104,7 @@ Délais : `debounceMs` (ignore les rafales d'événements), `escalationWindowMs`
 app/src/main/java/app/noreels/
 ├── rules/       modèle + parseur validant blocking_rules.json
 ├── detection/   ScreenNode (abstraction), SurfaceDetector, BlockDecider — Kotlin pur, testé en JVM
-├── allowance/   AllowanceMeter (temps visionné du jour), décision du tick — Kotlin pur, testé en JVM
+├── allowance/   AllowanceMeter (temps visionné du jour), AllowanceController (tick, reprise après déverrouillage) — Kotlin pur, testé en JVM
 ├── service/     ReelsBlockerService (accessibilité), adaptateur AccessibilityNodeInfo, statut
 ├── data/        DataStore (réglages, réserve, blocages et temps visionné du jour), temps d'usage (UsageStatsManager)
 └── ui/          écran d'accueil Compose + ViewModel

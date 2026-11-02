@@ -14,7 +14,8 @@ object RulesParser {
     }
 
     private fun validate(rules: BlockingRules) {
-        require(rules.allowanceTickMs > 0 && rules.allowanceMaxGapMs > 0 && rules.allowanceFlushMs > 0) {
+        require(rules.allowanceTickMs > 0 && rules.allowanceMaxGapMs > 0 && rules.allowanceFlushMs > 0 &&
+                rules.allowanceProbeWindowMs > 0) {
             "Allowance timings must be positive"
         }
         require(rules.allowanceMaxGapMs >= rules.allowanceTickMs) {

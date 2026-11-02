@@ -20,6 +20,7 @@ class RulesParserTest {
         assertThat(rules.allowanceTickMs).isEqualTo(1000)
         assertThat(rules.allowanceMaxGapMs).isEqualTo(2000)
         assertThat(rules.allowanceFlushMs).isEqualTo(15000)
+        assertThat(rules.allowanceProbeWindowMs).isEqualTo(3000)
         val chrome = rules.browsers.single { it.packageName == "com.android.chrome" }
         assertThat(chrome.urlBarIds).contains("com.android.chrome:id/url_bar")
         val brave = rules.browsers.single { it.packageName == "com.brave.browser" }
@@ -77,6 +78,7 @@ class RulesParserTest {
           "allowanceTickMs": 1000,
           "allowanceMaxGapMs": $allowanceMaxGapMs,
           "allowanceFlushMs": 15000,
+          "allowanceProbeWindowMs": 3000,
           "platforms": [
             {"id": "test", "label": "Test", "packages": ["com.test"], "surfaces": [$surfaces]}
           ],
